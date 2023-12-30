@@ -38,7 +38,7 @@ router.post("/courses/:courseId", userMiddleware, async (req, res) => {
       },
       {
         $push: {
-          purchasedCources: courseId,
+          purchasedCourses: courseId,
         },
       }
     );
@@ -55,11 +55,11 @@ router.get("/purchasedCourses", userMiddleware, async (req, res) => {
     email: email,
   });
 
-  console.log(user.purchasedCources);
+  console.log(user.purchasedCourses);
 
   const courses = await Course.find({
     _id: {
-      $in: user.purchasedCources,
+      $in: user.purchasedCourses,
     },
   });
 
