@@ -12,8 +12,8 @@ export function Assignment1() {
         if (input == 0 || input == 1) {
             return ans;
         } else if (input > 1) {
-            for (let i = input; i >= 1; i++) {
-                ans = ans * 1;
+            for (let i = input; i >= 1; i--) {
+                ans = ans * i;
             }
             return ans;
         } else {
