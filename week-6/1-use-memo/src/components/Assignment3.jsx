@@ -12,12 +12,19 @@ export const Assignment3 = () => {
     ]);
 
     // Your code starts here
-    const totalValue = useMemo(() => {
-        let total = 0;
-        items.forEach(element => {
-            total += element.value;
+    //Without reducer
+    // const totalValue = useMemo(() => {
+    //     let total = 0;
+    //     items.forEach(element => {
+    //         total += element.value;
 
-        });
+    //     });
+    //     return total;
+    // }, [items]);
+
+    //With reducer
+    const totalValue = useMemo(() => {
+        let total = items.reduce((accumlator, currentValue) => accumlator + currentValue.value, 0)
         return total;
     }, [items]);
     // Your code ends here
